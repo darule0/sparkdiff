@@ -14,12 +14,12 @@ sparkdiff is a Linux command line utility which contrasts spark logs from two ru
 For example, if a spark application has been running without problems for years and then suddenly slows down or stops working, then I will pass in the logs from both a known working run as well as the logs from the run which had problems. With a little luck, the sparkdiff output helps guide me towards the root cause and solution.
 
 ## Online Installation w/ CI
-```sh
+```console
 
-mkdir $HOME/bin
-chmod u+rx $HOME/bin
-wget -O $HOME/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
-chmod u+rx $HOME/bin/sparkdiff
+mkdir ~/bin
+chmod u+rx ~/bin
+wget -O ~/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
+chmod u+rx ~/bin/sparkdiff
 sparkdiff
 
 ```
@@ -27,7 +27,7 @@ sparkdiff
 
 
 ## Offline Installation w/o CI
-```sh
+```console
 
 sudo mkdir /opt/sparkdiff
 sudo chmod o+rx /opt/sparkdiff
@@ -38,13 +38,13 @@ sparkdiff
 ```
 
 ## Tutorial
-```sh
+```console
 
 # install sparkdiff w/ CI
-mkdir $HOME/bin
-chmod u+rx $HOME/bin
-wget -O $HOME/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
-chmod u+rx $HOME/bin/sparkdiff
+mkdir ~/bin
+chmod u+rx ~/bin
+wget -O ~/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
+chmod u+rx ~/bin/sparkdiff
 
 # display sparkdiff usage
 sparkdiff
