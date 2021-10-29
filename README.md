@@ -1,2 +1,2 @@
 # sparkdiff
-A rudimentary tool for comparing spark logs.
+A rudimentary command line utility for comparing spark logs.
