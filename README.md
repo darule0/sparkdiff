@@ -32,6 +32,7 @@ sparkdiff
 sudo mkdir /opt/sparkdiff
 sudo chmod o+rx /opt/sparkdiff
 sudo git clone https://github.com/darule0/sparkdiff.git /opt/sparkdiff
+chmod u+rx /opt/sparkdiff/sparkdiff.sh
 sudo ln -s /opt/sparkdiff/sparkdiff.sh /usr/bin/sparkdiff
 sparkdiff
 
