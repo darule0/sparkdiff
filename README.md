@@ -18,7 +18,7 @@ For example, if a spark application has been running without problems for years 
 
 mkdir $HOME/bin
 chmod u+rx $HOME/bin
-wget -O $HOME/bin/sparkdiff https://raw.githubusercontent.com/darule0/sparkdiff/main/sparkdiff
+wget -O $HOME/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
 chmod u+rx $HOME/bin/sparkdiff
 sparkdiff
 
@@ -43,7 +43,7 @@ sparkdiff
 # install sparkdiff w/ CI
 mkdir $HOME/bin
 chmod u+rx $HOME/bin
-wget -O $HOME/bin/sparkdiff https://raw.githubusercontent.com/darule0/sparkdiff/main/sparkdiff
+wget -O $HOME/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
 chmod u+rx $HOME/bin/sparkdiff
 
 # display sparkdiff usage
