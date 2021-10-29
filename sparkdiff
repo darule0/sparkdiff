@@ -3,7 +3,11 @@
 #
 # For documentation and license see https://github.com/darule0/sparkdiff/
 #
-
+GIT_INSTALLED="1"
+command -v git >/dev/null 2>&1 ||
+{ 
+ GIT_INSTALLED="0"
+}
 if [ ! -d "~/bin" ] 
 then
  mkdir -p ~/bin
@@ -12,6 +16,10 @@ fi
 rm -fr ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
 mkdir ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
 chmod u+rx ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
-git clone https://github.com/darule0/sparkdiff.git ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/ >> /dev/null 2>> /dev/null
+if [ "$GIT_INSTALLED" -eq "1" ]; then
+ git clone https://github.com/darule0/sparkdiff.git ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/ >> /dev/null 2>> /dev/null
+else
+ wget -O ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/sparkdiff.sh https://raw.githubusercontent.com/darule0/sparkdiff/main/sparkdiff.sh >> /dev/null 2>> /dev/null
+fi
 chmod u+rx ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/sparkdiff.sh
 ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/sparkdiff.sh $@
