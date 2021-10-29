@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# 
+# For documentation and license see https://github.com/darule0/sparkdiff/
+# 
+
 if [ $# -lt 2 ]; then
     echo "Usage: sparkdiff <spark event log 1> <spark event log 2>"
     exit 1

@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#
+# For documentation and license see https://github.com/darule0/sparkdiff/
+#
+
+if [ ! -d "~/bin" ] 
+then
+ mkdir -p ~/bin
+ chmod u+rx ~/bin
+fi
+rm -fr ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
+mkdir ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
+chmod u+rx ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
+git clone https://github.com/darule0/sparkdiff.git ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/ >> /dev/null 2>> /dev/null
+chmod u+rx ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/sparkdiff.sh
+${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e/sparkdiff.sh $@
