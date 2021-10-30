@@ -38,6 +38,14 @@ sparkdiff
 
 ```
 
+## How to obtain event logs for a spark application run?
+Each time a spark applicaiton is run, the console output will include an application id.
+The application id can be used to locate the event logs in HDFS once the spark application is finished
+or failed. In spark configuration, spark.eventLog.dir will specify where in HDFS event logs are stored.
+```console
+hdfs dfs -get hdfs dfs -ls /user/spark/applicationHistory/<application id>
+```
+
 ## Tutorial
 ```console
 
