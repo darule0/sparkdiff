@@ -50,7 +50,7 @@ chmod u+rx ~/bin/sparkdiff
 # display sparkdiff usage
 sparkdiff
 
-# contrast event files from a two runs of the same spark application
+# contrast event logs from a two runs of the same spark application
 sparkdiff event_log_1 event_log_2
 
 ```
