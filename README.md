@@ -64,11 +64,11 @@ sparkdiff event_log_1 event_log_2
 | $HOME/.sparkdiff | Intermediate data for sparkdiff processing. |
 
 ## Event Log Parsing Logic
-| scalar configurations which may be considered - all occurences |
+| scalar configurations which may be considered - all occurrences |
 | :--- |
 | App Attempt ID |
 
-| scalar configurations which may be considered - first occurence |
+| scalar configurations which may be considered - first occurrence |
 | :--- |
 | Java Home |
 | Java Version |
@@ -250,7 +250,7 @@ sparkdiff event_log_1 event_log_2
 | user.name |
 | user.timezone |
 
-| array configurations wich may be md5hash considered - first occurence |
+| array configurations wich may be md5hash considered - first occurrence |
 | :--- |
 | spark.yarn.appMasterEnv.INFA_MAPRED_CLASSPATH |
 | spark.yarn.appMasterEnv.LD_LIBRARY_PATH |
@@ -258,16 +258,17 @@ sparkdiff event_log_1 event_log_2
 | java.library.path |
 | sun.boot.class.path |
 
-| array configurations wich may be tokenized and considered - first occurence |
+| array configurations wich may be tokenized and considered - first occurrence |
 | :--- |
 | spark.executor.extraClassPath |
 | spark.driver.extraClassPath |
 
-| inputs which may be considered |
+| inputs which may be considered - all occurrence summed |
 | :--- |
-| scrap = Last 159 characters of Input Metrics |
-| Input Metrics scrap -> Bytes Read |
-| Input Metrics scrap -> Records Read |
+| scrap = Last 159 characters of events that contain Input Metrics |
+| Input Metrics scrap -> Bytes Read -> BytesRead.integer |
+| Input Metrics scrap -> Bytes Read -> BytesRead.iec (human readable) |
+| Input Metrics scrap -> Records Read -> RecordsRead.integer |
 
 | configurations which may be excluded |
 | :--- |
