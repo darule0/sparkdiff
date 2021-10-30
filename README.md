@@ -117,8 +117,6 @@ sparkdiff event_log_1 event_log_2
 | spark.executorEnv.IFCONTENTMASTER_HOME |
 | spark.executorEnv.IMF_CPP_RESOURCE_PATH |
 | spark.executorEnv.INFA_HADOOP_DIST_DIR |
-| spark.executorEnv.INFA_HADOOP_DIST_DIR |
-| spark.executorEnv.INFA_HADOOP_DIST_DIR |
 | spark.executorEnv.INFA_JAVA_BIN |
 | spark.executorEnv.INFA_MAPRED_OSGI_CONFIG |
 | eclipse.stateSaveDelayInterval |
