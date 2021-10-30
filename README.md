@@ -1,5 +1,5 @@
 # sparkdiff <event log 1> <event log 2>
-A rudimentary command line utility for contrasting spark logs.
+A rudimentary command line utility for contrasting Apache Spark logs.
 
 ## Motivation
 I have been troubleshooting Apache Spark application issues full time since around 2015. When a spark application slows down or stops working, I try to find out more information such as: Did the inputs change? Did the configuration change?
