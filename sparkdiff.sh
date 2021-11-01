@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# 
+exe() { echo "\$ ${@/eval/}" ; "$@" ; }
+
+#
 # For documentation and license see https://github.com/darule0/sparkdiff/
-# 
+#
 
 if [ $# -lt 2 ]; then
     echo "Usage: sparkdiff <spark event log 1> <spark event log 2>"
@@ -278,7 +280,10 @@ parse_class_path () {
    echo -e '"'
   done
 }
-
+echo "╔═════════════════════════════════════════════════════════════════════════╗"
+echo "║ For documentation and license see https://github.com/darule0/sparkdiff/ ║"
+echo "╚═════════════════════════════════════════════════════════════════════════╝"
+echo ""
 rm -fr ~/.sparkdiff
 mkdir ~/.sparkdiff
 
