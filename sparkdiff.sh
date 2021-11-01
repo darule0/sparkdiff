@@ -280,6 +280,7 @@ parse_class_path () {
    echo -e '"'
   done
 }
+echo ""
 echo "╔═════════════════════════════════════════════════════════════════════════╗"
 echo "║ For documentation and license see https://github.com/darule0/sparkdiff/ ║"
 echo "╚═════════════════════════════════════════════════════════════════════════╝"
