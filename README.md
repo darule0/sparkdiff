@@ -2,7 +2,7 @@
 A rudimentary command line utility for contrasting Apache Spark event logs.
 
 ## Motivation
-I have been troubleshooting Apache Spark application issues full time since around 2015. When a spark application slows down or stops working, I try to find out more information such as: Did the inputs change? Did the configuration change?
+I have been troubleshooting Apache Spark application issues full-time since around 2015. When a spark application slows down or stops working, I try to find out more information such as: Did the inputs change? Did the configuration change?
 
 Spark logs from two runs of the same application cannot be contrasted using a general purpose diff tool as there would be thousands of changes detected which are not useful for troubleshooting.
 
