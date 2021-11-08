@@ -8,11 +8,6 @@ command -v git >/dev/null 2>&1 ||
 { 
  GIT_INSTALLED="0"
 }
-if [ ! -d "~/bin" ] 
-then
- mkdir -p ~/bin
- chmod u+rx ~/bin
-fi
 rm -fr ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
 mkdir ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
 chmod u+rx ${HOME}/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e
