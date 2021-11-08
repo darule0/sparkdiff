@@ -20,7 +20,6 @@ mkdir ~/bin
 chmod u+rx ~/bin
 wget -O ~/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
 chmod u+rx ~/bin/sparkdiff
-sparkdiff
 
 ```
 
@@ -34,7 +33,6 @@ sudo chmod o+rx /opt/sparkdiff
 sudo git clone https://github.com/darule0/sparkdiff.git /opt/sparkdiff
 sudo chmod o+rx /opt/sparkdiff/sparkdiff.sh
 sudo ln -s /opt/sparkdiff/sparkdiff.sh /usr/bin/sparkdiff
-sparkdiff
 
 ```
 
