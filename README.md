@@ -70,7 +70,7 @@ sparkdiff event_log_1 event_log_2
 | $HOME/.sparkdiff | Intermediate data for sparkdiff processing. |
 
 ## Event Log Parsing Logic
-| scalar configurations which may be considered - all occurrences |
+| array configurations which may be considered - all occurrences |
 | :--- |
 | App Attempt ID |
 
