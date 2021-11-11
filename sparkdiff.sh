@@ -5,8 +5,20 @@
 #
 
 if [ $# -lt 2 ]; then
-    echo "Usage: sparkdiff <spark event log 1> <spark event log 2>"
-    exit 1
+  echo -e "\e[92m"
+  echo ".▄▄ ·  ▄▄▄· ▄▄▄· ▄▄▄  ▄ •▄ ·▄▄▄▄  ▪  ·▄▄▄·▄▄▄"
+  echo "▐█ ▀. ▐█ ▄█▐█ ▀█ ▀▄ █·█▌▄▌▪██▪ ██ ██ ▐▄▄·▐▄▄·"
+  echo "▄▀▀▀█▄ ██▀·▄█▀▀█ ▐▀▀▄ ▐▀▀▄·▐█· ▐█▌▐█·██▪ ██▪ "
+  echo "▐█▄▪▐█▐█▪·•▐█ ▪▐▌▐█•█▌▐█.█▌██. ██ ▐█▌██▌.██▌."
+  echo " ▀▀▀▀ .▀    ▀  ▀ .▀  ▀·▀  ▀▀▀▀▀▀• ▀▀▀▀▀▀ ▀▀▀ (TM)"
+  echo -e "\e[39m"
+  echo "╔═════════════════════════════════════════════════════════════════════════╗"
+  echo "║ For documentation and license see https://github.com/darule0/sparkdiff/ ║"
+  echo "╚═════════════════════════════════════════════════════════════════════════╝"
+  echo ""
+  echo "Usage: sparkdiff <spark event log 1> <spark event log 2>"
+  echo ""
+  exit 1
 fi
 
 PYTHON_INSTALLED="1"
