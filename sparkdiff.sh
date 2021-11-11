@@ -1,7 +1,5 @@
 #!/bin/bash
 
-exe() { echo "\$ ${@/eval/}" ; "$@" ; }
-
 #
 # For documentation and license see https://github.com/darule0/sparkdiff/
 #
@@ -11,11 +9,24 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+PYTHON_INSTALLED="1"
+python --version >> /dev/null 2>> /dev/null
+if [ $? -eq 0 ]; then
+  PYTHON_INSTALLED="0"
+else
+  echo ""
+  echo -e "\e[93mWARNING\e[39m: Command not found: python"
+  echo -e "\e[93mWARNING\e[39m: Install python to make this tool run significantly faster on large event logs."
+fi
+
 sparkconf () {
+  USER_UUID_TMP_DIR=/tmp/.sparkdiff.${USER}.$(uuidgen)
+  echo ${USER_TMP_DIR}
+  mkdir ${USER_UUID_TMP_DIR}
+
   event_file=$1
-  rm -fr ~/.sparkdiff/temp.nocomma
-  cat $event_file | tr ',' '\n' > ~/.sparkdiff/temp.nocomma
-  event_file=~/.sparkdiff/temp.nocomma
+  cat $event_file | tr ',' '\n' > ${USER_UUID_TMP_DIR}/temp.nocomma
+  event_file=${USER_UUID_TMP_DIR}/temp.nocomma
   cat $event_file | grep "Java Home" | head -1
   cat $event_file | grep "Java Version" | head -1
   cat $event_file | grep "Scala Version" | head -1
@@ -220,6 +231,7 @@ sparkconf () {
   cat $event_file | grep  "user.language" | head -1
   cat $event_file | grep  "user.name" | head -1
   cat $event_file | grep  "user.timezone" | head -1
+  rm -fr ${USER_UUID_TMP_DIR}
 }
 inputmetrics () {
    input_metric_scrap_file=$1
@@ -303,7 +315,20 @@ echo ""
 
 echo -e "---------[\e[1m\e[94minput_metrics ${1}\e[0m]---------"
 {
+
+if [ "$PYTHON_INSTALLED" -eq "1" ]; then
   cat $1 | grep -e '"Input Metrics"' | grep -o '..............................................................................................................................................................$' | grep -e '"Input Metrics"'
+else
+echo -e "
+fRawEventLog = open('${1}', 'r')
+for sLine in fRawEventLog:
+  endOfLine=sLine.rstrip()[-158:]
+  if 'Input Metrics' in endOfLine:
+    print(endOfLine)
+fRawEventLog.close()
+" | python
+fi
+
 } > ~/.sparkdiff/InputMetrics_event_1.scrap
 echo "...................................................................."
 inputmetrics ~/.sparkdiff/InputMetrics_event_1.scrap >> ~/.sparkdiff/spark_event_1.json
@@ -313,7 +338,20 @@ echo ""
 
 echo -e "---------[\e[1m\e[94minput_metrics ${2}\e[0m]---------"
 {
+
+if [ "$PYTHON_INSTALLED" -eq "1" ]; then
   cat $2 | grep -e '"Input Metrics"' | grep -o '..............................................................................................................................................................$' | grep -e '"Input Metrics"'
+else
+echo -e "
+fRawEventLog = open('${2}', 'r')
+for sLine in fRawEventLog:
+  endOfLine=sLine.rstrip()[-158:]
+  if 'Input Metrics' in endOfLine:
+    print(endOfLine)
+fRawEventLog.close()
+" | python
+fi
+
 } > ~/.sparkdiff/InputMetrics_event_2.scrap
 echo "...................................................................."
 inputmetrics ~/.sparkdiff/InputMetrics_event_2.scrap >> ~/.sparkdiff/spark_event_2.json
