@@ -293,25 +293,21 @@ parse_class_path () {
    echo -e '"'
   done
 }
-echo ""
-echo "╔═════════════════════════════════════════════════════════════════════════╗"
-echo "║ For documentation and license see https://github.com/darule0/sparkdiff/ ║"
-echo "╚═════════════════════════════════════════════════════════════════════════╝"
-echo ""
+
 rm -fr ~/.sparkdiff
 mkdir ~/.sparkdiff
 
-echo -e "---------[\e[1m\e[94mparse_configs ${1}\e[0m]---------"
-sparkconf $1 | tee ~/.sparkdiff/spark_event_1.json | awk '{print "."}' | tr '\n' '.'
-echo ""
-echo ""
+# echo -e "---------[\e[1m\e[94mparse_configs ${1}\e[0m]---------"
+sparkconf $1 > ~/.sparkdiff/spark_event_1.json
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94mparse_configs ${2}\e[0m]---------"
-sparkconf $2 | tee ~/.sparkdiff/spark_event_2.json | awk '{print "."}' | tr '\n' '.'
-echo ""
-echo ""
+# echo -e "---------[\e[1m\e[94mparse_configs ${2}\e[0m]---------"
+sparkconf $2 > ~/.sparkdiff/spark_event_2.json
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94minput_metrics ${1}\e[0m]---------"
+# echo -e "---------[\e[1m\e[94minput_metrics ${1}\e[0m]---------"
 {
 
 if [ "$PYTHON_INSTALLED" -eq "1" ]; then
@@ -328,13 +324,13 @@ fRawEventLog.close()
 fi
 
 } > ~/.sparkdiff/InputMetrics_event_1.scrap
-echo "...................................................................."
+# echo "...................................................................."
 inputmetrics ~/.sparkdiff/InputMetrics_event_1.scrap >> ~/.sparkdiff/spark_event_1.json
-echo "........"
-echo ""
-echo ""
+# echo "........"
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94minput_metrics ${2}\e[0m]---------"
+# echo -e "---------[\e[1m\e[94minput_metrics ${2}\e[0m]---------"
 {
 
 if [ "$PYTHON_INSTALLED" -eq "1" ]; then
@@ -351,31 +347,31 @@ fRawEventLog.close()
 fi
 
 } > ~/.sparkdiff/InputMetrics_event_2.scrap
-echo "...................................................................."
+# echo "...................................................................."
 inputmetrics ~/.sparkdiff/InputMetrics_event_2.scrap >> ~/.sparkdiff/spark_event_2.json
-echo "........"
-echo ""
-echo ""
+# echo "........"
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94mparse_classpaths ${1}\e[0m]---------"
+# echo -e "---------[\e[1m\e[94mparse_classpaths ${1}\e[0m]---------"
 parse_class_path ${1} "executor" > ~/.sparkdiff/event_1_executor.classpath
 parse_class_path ${1} "driver" > ~/.sparkdiff/event_1_driver.classpath
 cat ~/.sparkdiff/event_1_executor.classpath >> ~/.sparkdiff/spark_event_1.json
 cat ~/.sparkdiff/event_1_driver.classpath >> ~/.sparkdiff/spark_event_1.json
-echo "........"
-echo ""
-echo ""
+# echo "........"
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94mparse_classpaths ${2}\e[0m]---------"
+# echo -e "---------[\e[1m\e[94mparse_classpaths ${2}\e[0m]---------"
 parse_class_path ${2} "executor" > ~/.sparkdiff/event_2_executor.classpath
 parse_class_path ${2} "driver" > ~/.sparkdiff/event_2_driver.classpath
 cat ~/.sparkdiff/event_2_executor.classpath >> ~/.sparkdiff/spark_event_2.json
 cat ~/.sparkdiff/event_2_driver.classpath >> ~/.sparkdiff/spark_event_2.json
-echo "........"
-echo ""
-echo ""
+# echo "........"
+# echo ""
+# echo ""
 
-echo -e "---------[\e[1m\e[94mdiff\e[0m]---------"
+# echo -e "---------[\e[1m\e[94mdiff\e[0m]---------"
 diff ~/.sparkdiff/spark_event_1.json ~/.sparkdiff/spark_event_2.json
-echo ""
-echo ""
+# echo ""
+# echo ""
