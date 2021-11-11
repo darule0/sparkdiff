@@ -14,19 +14,18 @@ python --version >> /dev/null 2>> /dev/null
 if [ $? -eq 0 ]; then
   PYTHON_INSTALLED="0"
 else
-  echo ""
-  echo -e "\e[93mWARNING\e[39m: Command not found: python"
-  echo -e "\e[93mWARNING\e[39m: Install python to make this tool run significantly faster on large event logs."
+  >&2 echo ""
+  >&2 echo -e "\e[93mWARNING\e[39m: Command not found: python"
+  >&2 echo -e "\e[93mWARNING\e[39m: Install python to make this tool run significantly faster on large event logs."
 fi
 
 sparkconf () {
-  USER_UUID_TMP_DIR=/tmp/.sparkdiff.${USER}.$(uuidgen)
-  echo ${USER_TMP_DIR}
-  mkdir ${USER_UUID_TMP_DIR}
-
   event_file=$1
-  cat $event_file | tr ',' '\n' > ${USER_UUID_TMP_DIR}/temp.nocomma
-  event_file=${USER_UUID_TMP_DIR}/temp.nocomma
+
+  rm -fr ~/.sparkdiff/temp.scrap.nocomma
+  cat $event_file | head -1000 | tr ',' '\n' > ~/.sparkdiff/temp.scrap.nocomma
+  event_file=~/.sparkdiff/temp.scrap.nocomma
+  
   cat $event_file | grep "Java Home" | head -1
   cat $event_file | grep "Java Version" | head -1
   cat $event_file | grep "Scala Version" | head -1
@@ -231,7 +230,6 @@ sparkconf () {
   cat $event_file | grep  "user.language" | head -1
   cat $event_file | grep  "user.name" | head -1
   cat $event_file | grep  "user.timezone" | head -1
-  rm -fr ${USER_UUID_TMP_DIR}
 }
 inputmetrics () {
    input_metric_scrap_file=$1
