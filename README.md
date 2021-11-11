@@ -61,7 +61,9 @@ sparkdiff event_log_1 event_log_2
 
 ```
 
+
 ![alt text](https://raw.githubusercontent.com/darule0/sparkdiff/main/sparkdiff.png)
+
 
 ## Directories Used
 | directory | purpose |
