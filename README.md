@@ -68,7 +68,6 @@ sparkdiff event_log_1 event_log_2
 | :--- | :--- |
 | $HOME/.sparkdiff.dd4b66ed-a43d-48ec-8e32-1b901bc8ea8e | The latest sparkdiff is automatically downlaoded here when Online Installation w/ CI. |
 | $HOME/.sparkdiff | Intermediate data for sparkdiff processing. |
-| /tmp/.sparkdiff.${USER}.$(uuidgen) | Intermediate data for sparkdiff processing. |
 
 ## Event Log Parsing Logic
 | array configurations which may be considered - all occurrences |
