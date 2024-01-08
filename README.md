@@ -20,6 +20,7 @@ mkdir ~/bin
 chmod u+rx ~/bin
 wget -O ~/bin/sparkdiff https://github.com/darule0/sparkdiff/blob/main/sparkdiff?raw=true
 chmod u+rx ~/bin/sparkdiff
+source ~/.profile
 
 ```
 
